@@ -1,1 +1,2 @@
-# mobile_sdk_demo
+# mobile_sdk_demo project
+
