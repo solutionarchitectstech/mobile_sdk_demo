@@ -34,7 +34,6 @@ TechAdvertising.init(
 [Look at the example here](https://github.com/solutionarchitectstech/mobile_sdk_demo/blob/5d6ce5a898b789641c6f31bf1d82d129881e0da1/app/src/main/kotlin/tech/solutionarchitects/testapplication/InitAdActivity.kt#L30)
 
 ## 3. banner view
-
 ![banner-view](/readme_content/banner.gif)
 
 ### 3.1 XML layout
@@ -48,6 +47,38 @@ TechAdvertising.init(
    app:layout_constraintTop_toTopOf="parent"/>
 ```
 [Look at the example here](https://github.com/solutionarchitectstech/mobile_sdk_demo/blob/5d6ce5a898b789641c6f31bf1d82d129881e0da1/app/src/main/res/layout/activity_main.xml#L28)
+
+### 3.2 Setup the data
+
+```kotlin
+bannerAd.initBanner(
+placementId: Int,
+sizes: List<Size>,
+timeout: Int? = null,
+refresh: Int? = null,
+closeButtonType: CloseButtonType = CloseButtonType.VISIBLE)
+```
+[Look at the example here](https://github.com/solutionarchitectstech/mobile_sdk_demo/blob/5d6ce5a898b789641c6f31bf1d82d129881e0da1/app/src/main/kotlin/tech/solutionarchitects/testapplication/MainActivity.kt#L67)
+
+## 4. fullscreen view
+![banner-view](/readme_content/fullscreen.gif)
+
+```kotlin
+val interstitialAdvertisement = InterstitialAdvertisement(
+   activity: Activity,
+   placementId: Int,
+   sizes: List<Size>,
+   timeout: Int? = null,
+   refresh: Int? = null,
+   closeButtonType: CloseButtonType = CloseButtonType.COUNTDOWN,
+)
+interstitialAdvertisement.load()
+```
+[Look at the example here](https://github.com/solutionarchitectstech/mobile_sdk_demo/blob/5d6ce5a898b789641c6f31bf1d82d129881e0da1/app/src/main/kotlin/tech/solutionarchitects/testapplication/MainActivity.kt#L55)
+
+
+
+
 
 
 
