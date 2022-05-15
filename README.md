@@ -52,11 +52,11 @@ TechAdvertising.init(
 
 ```kotlin
 bannerAd.initBanner(
-placementId: Int,
-sizes: List<Size>,
-timeout: Int? = null,
-refresh: Int? = null,
-closeButtonType: CloseButtonType = CloseButtonType.VISIBLE)
+    placementId: Int,
+    sizes: List<Size>,
+    timeout: Int? = null,
+    refresh: Int? = null,
+    closeButtonType: CloseButtonType = CloseButtonType.VISIBLE)
 ```
 [Look at the example here](https://github.com/solutionarchitectstech/mobile_sdk_demo/blob/5d6ce5a898b789641c6f31bf1d82d129881e0da1/app/src/main/kotlin/tech/solutionarchitects/testapplication/MainActivity.kt#L67)
 
