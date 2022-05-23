@@ -7,7 +7,7 @@ Before usage of the SDK Developer has to add the following dependency to app-mod
 dependencies
 {
     //... other dependencies
-    implementation 'com.github.solutionarchitectstech:mobile_sdk_release:<VERSION>'
+    implementation 'com.github.solutionarchitectstech:mobile_sdk_release:0.0.2'
     //... other dependencies
 }
 ```
@@ -19,9 +19,9 @@ TechAdvertising.init(
     storeUrl: String,
     apiKey: String,
     apiSecret: String,
-    publisherId: Int,
+    partnerId: Int,
     tagId: String? = null,
-    userId: String? = null,
+    uid: String? = null,
     hashType: HashType = HashType.SHA_1,
     requestType: RequestType = RequestType.POST,
     enableExternalExceptionHandler: Boolean = false,
