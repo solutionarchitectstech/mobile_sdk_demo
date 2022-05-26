@@ -15,7 +15,7 @@
         <activity
             android:name="tech.solutionarchitects.testapplication.AdBannerAdvertisingActivity"
             android:exported="true"
-            android:parentActivityName="tech.solutionarchitects.testapplication.InitAdActivity" />
+            android:parentActivityName="tech.solutionarchitects.testapplication.InitAdActivity"></activity>
         <activity
             android:name="tech.solutionarchitects.testapplication.InitAdActivity"
             android:exported="true">

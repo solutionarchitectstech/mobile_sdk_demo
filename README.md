@@ -7,7 +7,7 @@ Before usage of the SDK Developer has to add the following dependency to app-mod
 dependencies
 {
     //... other dependencies
-    implementation 'com.github.solutionarchitectstech:mobile_sdk_release:0.0.2'
+    implementation 'com.github.solutionarchitectstech:mobile_sdk_release:0.0.7'
     //... other dependencies
 }
 ```
@@ -29,6 +29,7 @@ TechAdvertising.init(
     baseUrl: String? = null,
     postUrl: String? = null,
     getUrl: String? = null,
+    trackingSdkBaseUrl: String? = null,
     enableLogsHandler: Boolean = false)
 ```
 [Look at the example here](https://github.com/solutionarchitectstech/mobile_sdk_demo/blob/5d6ce5a898b789641c6f31bf1d82d129881e0da1/app/src/main/kotlin/tech/solutionarchitects/testapplication/InitAdActivity.kt#L30)

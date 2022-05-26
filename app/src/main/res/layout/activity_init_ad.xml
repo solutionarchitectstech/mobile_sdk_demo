@@ -123,6 +123,23 @@
                 android:layout_marginHorizontal="10dp"
                 android:text="@string/id_of_publisher" />
 
+
+            <EditText
+                android:id="@+id/trackingEndPointEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_12dp"
+                android:hint="@string/tracking_base_url"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/trackingEndPointTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="@string/http_url" />
+
             <EditText
                 android:id="@+id/et_base_url"
                 android:layout_width="match_parent"

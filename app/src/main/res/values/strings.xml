@@ -38,4 +38,5 @@
     <string name="id_of_publisher">ID of publisher</string>
     <string name="publisher_id">Publisher ID</string>
     <string name="enable_compression">Enable compression</string>
+    <string name="tracking_base_url">Tracking base URL</string>
 </resources>
