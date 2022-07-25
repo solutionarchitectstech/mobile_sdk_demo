@@ -57,7 +57,27 @@ bannerAd.initBanner(
     sizes: List<Size>,
     timeout: Int? = null,
     refresh: Int? = null,
-    closeButtonType: CloseButtonType = CloseButtonType.VISIBLE)
+    closeButtonType: CloseButtonType = CloseButtonType.VISIBLE,
+    listener = object : TechAdvertisingListener {
+        override fun onEvent(event: ListenerEvent) {
+            println("~~ onEvent: $event")
+            when (event) {
+                is LoadDataSuccess -> {
+                    println("LoadDataSuccess")
+                }
+                is LoadDataFail -> {
+                    println("LoadDataFail")
+                }
+                is LoadContentSuccess -> {
+                    println("LoadContentSuccess")
+                }
+                is LoadContentFail -> {
+                    println("LoadContentFail")
+                }
+            }
+        }
+    }
+)
 ```
 [Look at the example here](https://github.com/solutionarchitectstech/mobile_sdk_demo/blob/5d6ce5a898b789641c6f31bf1d82d129881e0da1/app/src/main/kotlin/tech/solutionarchitects/testapplication/MainActivity.kt#L67)
 
@@ -72,6 +92,25 @@ val interstitialAdvertisement = InterstitialAdvertisement(
    timeout: Int? = null,
    refresh: Int? = null,
    closeButtonType: CloseButtonType = CloseButtonType.COUNTDOWN,
+   listener = object : TechAdvertisingListener {
+        override fun onEvent(event: ListenerEvent) {
+            println("~~ onEvent: $event")
+            when (event) {
+                is LoadDataSuccess -> {
+                    println("LoadDataSuccess")
+                }
+                is LoadDataFail -> {
+                    println("LoadDataFail")
+                }
+                is LoadContentSuccess -> {
+                    println("LoadContentSuccess")
+                }
+                is LoadContentFail -> {
+                    println("LoadContentFail")
+                }
+            }
+        }
+    }
 )
 interstitialAdvertisement.load()
 ```
