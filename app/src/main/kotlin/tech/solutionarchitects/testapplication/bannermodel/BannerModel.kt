@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 data class BannerModel(
     val refresh: Int,
     val timeout: Int,
-    val placementId: Int,
+    val placementId: String,
     val closeButtonType: CloseButtonType,
     val sizes: List<Size>
 ) : Parcelable

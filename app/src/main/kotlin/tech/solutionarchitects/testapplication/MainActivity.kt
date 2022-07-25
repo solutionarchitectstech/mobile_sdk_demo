@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.core.InterstitialAdvertisement
+import tech.solutionarchitects.advertisingsdk.listener.*
 import tech.solutionarchitects.testapplication.InitAdActivity.Companion.ENABLE_LOGS
 import tech.solutionarchitects.testapplication.bannermodel.BannerModel
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
@@ -35,7 +36,6 @@ class MainActivity : AppCompatActivity() {
                 }
             context.startActivity(intent)
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,25 +51,66 @@ class MainActivity : AppCompatActivity() {
                 val banner2 = intent.getParcelableExtra<BannerModel>(BANNER_TWO)
                 when (it) {
                     "Interstitial banner" -> {
-                        interstitialAdvertisement =
-                            InterstitialAdvertisement(
-                                this,
-                                banner1?.placementId!!,
-                                banner1.sizes,
-                                banner1.timeout,
-                                banner1.refresh,
-                                banner1.closeButtonType,
-                            )
-                        interstitialAdvertisement?.load()
+                        try {
+                            interstitialAdvertisement =
+                                InterstitialAdvertisement(
+                                    this,
+                                    banner1?.placementId!!,
+                                    banner1.sizes,
+                                    banner1.timeout,
+                                    banner1.refresh,
+                                    banner1.closeButtonType,
+                                    listener = object : TechAdvertisingListener {
+                                        override fun onEvent(event: ListenerEvent) {
+                                            println("~~ onEvent: $event")
+                                            when (event) {
+                                                is LoadDataSuccess -> {
+                                                    println("LoadDataSuccess")
+                                                }
+                                                is LoadDataFail -> {
+                                                    println("LoadDataFail")
+                                                }
+                                                is LoadContentSuccess -> {
+                                                    println("LoadContentSuccess")
+                                                }
+                                                is LoadContentFail -> {
+                                                    println("LoadContentFail")
+                                                }
+                                            }
+                                        }
+                                    }
+                                )
+                            interstitialAdvertisement?.load()
+                        } catch (e: Exception) {
+                            println("exception: $e")
+                        }
                     }
                     "Fix size banner" -> {
-
                         mBinding.bannerAd.initBanner(
                             banner1?.placementId!!,
                             banner1.sizes,
                             banner1.timeout,
                             banner1.refresh,
                             banner1.closeButtonType,
+                            listener = object : TechAdvertisingListener {
+                                override fun onEvent(event: ListenerEvent) {
+                                    println("~~ onEvent: $event")
+                                    when (event) {
+                                        is LoadDataSuccess -> {
+                                            println("LoadDataSuccess")
+                                        }
+                                        is LoadDataFail -> {
+                                            println("LoadDataFail")
+                                        }
+                                        is LoadContentSuccess -> {
+                                            println("LoadContentSuccess")
+                                        }
+                                        is LoadContentFail -> {
+                                            println("LoadContentFail")
+                                        }
+                                    }
+                                }
+                            }
                         )
                         mBinding.bannerAd.load()
                     }
@@ -80,6 +121,25 @@ class MainActivity : AppCompatActivity() {
                             banner1.timeout,
                             banner1.refresh,
                             banner1.closeButtonType,
+                            listener = object : TechAdvertisingListener {
+                                override fun onEvent(event: ListenerEvent) {
+                                    println("~~ onEvent: $event")
+                                    when (event) {
+                                        is LoadDataSuccess -> {
+                                            println("LoadDataSuccess")
+                                        }
+                                        is LoadDataFail -> {
+                                            println("LoadDataFail")
+                                        }
+                                        is LoadContentSuccess -> {
+                                            println("LoadContentSuccess")
+                                        }
+                                        is LoadContentFail -> {
+                                            println("LoadContentFail")
+                                        }
+                                    }
+                                }
+                            }
                         )
                         mBinding.bannerAd.load()
 
@@ -89,6 +149,25 @@ class MainActivity : AppCompatActivity() {
                             banner2.timeout,
                             banner2.refresh,
                             banner2.closeButtonType,
+                            listener = object : TechAdvertisingListener {
+                                override fun onEvent(event: ListenerEvent) {
+                                    println("~~ onEvent: $event")
+                                    when (event) {
+                                        is LoadDataSuccess -> {
+                                            println("LoadDataSuccess")
+                                        }
+                                        is LoadDataFail -> {
+                                            println("LoadDataFail")
+                                        }
+                                        is LoadContentSuccess -> {
+                                            println("LoadContentSuccess")
+                                        }
+                                        is LoadContentFail -> {
+                                            println("LoadContentFail")
+                                        }
+                                    }
+                                }
+                            }
                         )
                         mBinding.bannerAd2.load()
                         mBinding.button.visibility = View.GONE

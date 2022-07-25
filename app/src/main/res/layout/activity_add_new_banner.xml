@@ -123,6 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_12dp"
                 android:ems="10"
+                android:text="555555"
                 android:hint="@string/placementId"
                 android:inputType="numberDecimal"
                 android:minHeight="48dp" />

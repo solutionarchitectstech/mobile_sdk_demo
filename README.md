@@ -53,7 +53,7 @@ TechAdvertising.init(
 
 ```kotlin
 bannerAd.initBanner(
-    placementId: Int,
+    placementId: String,
     sizes: List<Size>,
     timeout: Int? = null,
     refresh: Int? = null,
@@ -67,7 +67,7 @@ bannerAd.initBanner(
 ```kotlin
 val interstitialAdvertisement = InterstitialAdvertisement(
    activity: Activity,
-   placementId: Int,
+   placementId: String,
    sizes: List<Size>,
    timeout: Int? = null,
    refresh: Int? = null,

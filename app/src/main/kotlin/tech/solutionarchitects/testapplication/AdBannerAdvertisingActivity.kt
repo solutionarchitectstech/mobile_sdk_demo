@@ -13,6 +13,7 @@ import tech.solutionarchitects.testapplication.InitAdActivity.Companion.ENABLE_L
 import tech.solutionarchitects.testapplication.bannermodel.BannerModel
 import tech.solutionarchitects.testapplication.databinding.ActivityAddNewBannerBinding
 
+
 class AdBannerAdvertisingActivity : AppCompatActivity() {
     companion object {
         private const val TWO_FIX_SIZE_BANNERS: String = "2 Fix size banners"
@@ -75,14 +76,14 @@ class AdBannerAdvertisingActivity : AppCompatActivity() {
             val banner1 = BannerModel(
                 checkNullInt(mBinding.refresh.text.toString()),
                 checkNullInt(mBinding.timeout.text.toString()),
-                checkNullInt(mBinding.placementId.text.toString()),
+                checkNotNull(mBinding.placementId.text.toString()),
                 CloseButtonType.valueOf(mBinding.srCloseButtonType.selectedItem.toString()),
                 getListSizes(mBinding.sizes.text.toString())
             )
             val banner2 = BannerModel(
                 checkNullInt(mBinding.refresh2.text.toString()),
                 checkNullInt(mBinding.timeout2.text.toString()),
-                checkNullInt(mBinding.placementId2.text.toString()),
+                checkNotNull(mBinding.placementId2.text.toString()),
                 CloseButtonType.valueOf(mBinding.srCloseButtonType2.selectedItem.toString()),
                 getListSizes(mBinding.sizes2.text.toString())
             )
