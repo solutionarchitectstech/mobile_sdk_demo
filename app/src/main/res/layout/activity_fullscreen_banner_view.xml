@@ -16,32 +16,16 @@
   ~ of this source code, which in
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="50dp"
-    tools:context=".MainActivity">
+    tools:context=".activity.BannerViewActivity">
 
-    <Button
-        android:id="@+id/openBannerViewButton"
+    <tech.solutionarchitects.advertisingsdk.core.view.banner.BannerView
+        android:id="@+id/bannerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/open_banner_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/openFullScreenViewButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/open_programmatically_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,28 +18,24 @@
 
 package tech.solutionarchitects.testapplication
 
-import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.testapplication.activity.BannerViewActivity
-import tech.solutionarchitects.testapplication.activity.FullscreenBannerViewActivity
-import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
+import android.app.Application
+import tech.solutionarchitects.advertisingsdk.TechAdvertising
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        binding.openBannerViewButton.setOnClickListener {
-            startActivity(Intent(this, BannerViewActivity::class.java))
-        }
-
-        binding.openFullScreenViewButton.setOnClickListener {
-            startActivity(Intent(this, FullscreenBannerViewActivity::class.java))
-        }
+/**
+ * Created by Maxim Firsov on 21.08.2022.
+ * firsoffmaxim@gmail.com
+ */
+class TechApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        TechAdvertising.init(
+            context = applicationContext,
+            storeUrl = "storeUrl",
+            partnerId = "partnerId",
+            uid = "uid",
+            baseUrl = "https://your_server.com",
+            trackingBaseUrl = "https://log.your_server/",
+            debugMode = false
+        )
     }
 }

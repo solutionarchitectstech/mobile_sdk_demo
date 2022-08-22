@@ -16,30 +16,56 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication
+package tech.solutionarchitects.testapplication.activity
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.testapplication.activity.BannerViewActivity
-import tech.solutionarchitects.testapplication.activity.FullscreenBannerViewActivity
-import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
+import tech.solutionarchitects.advertisingsdk.core.model.Size
+import tech.solutionarchitects.advertisingsdk.listener.*
+import tech.solutionarchitects.testapplication.databinding.ActivityFullscreenBannerViewBinding
 
-class MainActivity : AppCompatActivity() {
+class FullscreenBannerViewActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityFullscreenBannerViewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityFullscreenBannerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
 
-        binding.openBannerViewButton.setOnClickListener {
-            startActivity(Intent(this, BannerViewActivity::class.java))
-        }
+    override fun onResume() {
+        super.onResume()
+        bannerViewLayoutTest()
+    }
 
-        binding.openFullScreenViewButton.setOnClickListener {
-            startActivity(Intent(this, FullscreenBannerViewActivity::class.java))
+    private fun bannerViewLayoutTest() {
+        binding.bannerView.load(
+            placementId = "placementId",
+            sizes = listOf(Size(width = 300, height = 150))
+        ) { event ->
+            when (event) {
+                is LoadDataSuccess -> {
+                    println("LoadDataSuccess: ${event.placementId}")
+                }
+
+                is LoadDataFail -> {
+                    println("LoadDataFail: ${event.throwable}")
+                }
+
+                is LoadContentSuccess -> {
+                    println("LoadContentSuccess: ${event.placementId}")
+                }
+
+                is LoadContentFail -> {
+                    println("LoadContentFail: ${event.throwable}")
+                }
+
+                is CloseButtonClick -> {
+                    println("CloseButtonClick: ${event.placementId}")
+                    finish()
+                }
+            }
         }
     }
 }
