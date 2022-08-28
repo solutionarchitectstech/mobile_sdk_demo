@@ -30,6 +30,10 @@
         <activity
             android:name="tech.solutionarchitects.testapplication.activity.FullscreenBannerViewActivity"
             android:exported="true" />
+
+        <activity
+            android:name="tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

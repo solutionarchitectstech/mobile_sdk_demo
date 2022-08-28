@@ -16,41 +16,30 @@
   ~ of this source code, which in
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="50dp"
-    tools:context=".MainActivity">
+    android:background="@color/cardview_dark_background"
+    android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/openBannerViewButton"
+    <tech.solutionarchitects.advertisingsdk.core.view.banner.BannerView
+        android:id="@+id/bannerView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/open_banner_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        android:layout_margin="16dp"
+        android:textColor="@color/purple_200"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="placement ID" />
 
-    <Button
-        android:id="@+id/openFullScreenViewButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/open_programmatically_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/recyclerViewScreenViewButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/open_recycler_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

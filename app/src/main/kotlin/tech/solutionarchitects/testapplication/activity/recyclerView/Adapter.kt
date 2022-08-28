@@ -16,26 +16,37 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication
+package tech.solutionarchitects.testapplication.activity.recyclerView
 
-import android.app.Application
-import tech.solutionarchitects.advertisingsdk.TechAdvertising
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import tech.solutionarchitects.testapplication.databinding.RecyclerViewItemBinding
 
-/**
- * Created by Maxim Firsov on 21.08.2022.
- * firsoffmaxim@gmail.com
- */
-class TechApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        TechAdvertising.init(
-            context = applicationContext,
-            storeUrl = "",
-            partnerId = "1",
-            uid = "uid@google.com",
-            baseUrl = "https://<YOUR_END_POINT>/",
-            trackingBaseUrl = "https://<YOUR_LOG_END_POINT>/",
-            debugMode = true
+
+sealed interface Item
+data class BannerItem(val placementID: Int) : Item
+object EmptyItem : Item
+
+class Adapter(private val dataSet: List<Item>) :
+    RecyclerView.Adapter<BannerItemHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerItemHolder {
+        return BannerItemHolder(
+            RecyclerViewItemBinding
+                .inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
         )
     }
+
+    override fun onBindViewHolder(holder: BannerItemHolder, position: Int) {
+        holder.bind(dataSet[position])
+    }
+
+    override fun getItemCount(): Int = dataSet.size
 }
+
+

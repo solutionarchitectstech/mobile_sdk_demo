@@ -59,4 +59,5 @@
     <string name="tracking_base_url">Tracking base URL</string>
     <string name="open_banner_view">XML-layout</string>
     <string name="open_programmatically_view">programmatically-layout</string>
+    <string name="open_recycler_view">Recycler-View</string>
 </resources>

@@ -23,6 +23,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.testapplication.activity.BannerViewActivity
 import tech.solutionarchitects.testapplication.activity.FullscreenBannerViewActivity
+import tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -40,6 +41,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.openFullScreenViewButton.setOnClickListener {
             startActivity(Intent(this, FullscreenBannerViewActivity::class.java))
+        }
+
+        binding.recyclerViewScreenViewButton.setOnClickListener {
+            startActivity(Intent(this, RecyclerViewActivity::class.java))
         }
     }
 }

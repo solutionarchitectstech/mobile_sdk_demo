@@ -16,33 +16,39 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication.activity
+package tech.solutionarchitects.testapplication.activity.recyclerView
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import tech.solutionarchitects.advertisingsdk.core.model.Size
 import tech.solutionarchitects.advertisingsdk.listener.*
-import tech.solutionarchitects.testapplication.databinding.ActivityBannerViewBinding
+import tech.solutionarchitects.advertisingsdk.types.CloseButtonType
+import tech.solutionarchitects.testapplication.databinding.RecyclerViewItemBinding
 
-class BannerViewActivity : AppCompatActivity() {
+class BannerItemHolder(private val binding: RecyclerViewItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
 
-    private lateinit var binding: ActivityBannerViewBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityBannerViewBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    fun bind(item: Item) {
+        when (item) {
+            is BannerItem -> bindBannerView(item)
+            EmptyItem -> bindEmptyView(item)
+        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        bannerViewLayoutTest()
+    private fun bindEmptyView(item: Item) {
+        binding.textView.visibility = View.INVISIBLE
+        binding.bannerView.visibility = View.INVISIBLE
     }
 
-    private fun bannerViewLayoutTest() {
+    private fun bindBannerView(item: BannerItem) {
+        binding.textView.visibility = View.VISIBLE
+        binding.bannerView.visibility = View.VISIBLE
+
+        binding.textView.text = "placementID: ${item.placementID}"
         binding.bannerView.load(
-            placementId = "1",
-            sizes = listOf(Size(width = 300, height = 150))
+            placementId = item.placementID.toString(),
+            sizes = listOf(Size(width = 300, height = 150)),
+            closeButtonType = CloseButtonType.NONE
         ) { event ->
             when (event) {
                 is LoadDataSuccess -> {
@@ -62,9 +68,9 @@ class BannerViewActivity : AppCompatActivity() {
                 }
                 is CloseButtonClick -> {
                     println("CloseButtonClick: ${event.placementId}")
-                    finish()
                 }
             }
         }
     }
+
 }

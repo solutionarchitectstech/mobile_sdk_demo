@@ -41,7 +41,7 @@ class FullscreenBannerViewActivity : AppCompatActivity() {
 
     private fun bannerViewLayoutTest() {
         binding.bannerView.load(
-            placementId = "placementId",
+            placementId = "1",
             sizes = listOf(Size(width = 300, height = 150))
         ) { event ->
             when (event) {

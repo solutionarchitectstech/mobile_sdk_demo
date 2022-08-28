@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ Copyright © Gusev Andrew, Emelianov Andrew, Spinov Dmitry [collectively referred as the Authors], 2017-2022 - All Rights Reserved
   ~ [NOTICE: All information contained herein is, and remains the property of the Authors.](notice: All information contained herein is, and remains the property of the Authors.)
   ~ The intellectual and technical concepts contained herein are proprietary to the Authors
@@ -16,41 +17,20 @@
   ~ of this source code, which in
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="50dp"
-    tools:context=".MainActivity">
+    android:id="@+id/mainLayout"
+    tools:context=".activity.BannerViewActivity">
 
-    <Button
-        android:id="@+id/openBannerViewButton"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/open_banner_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        android:layout_height="match_parent"
+        />
 
-    <Button
-        android:id="@+id/openFullScreenViewButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/open_programmatically_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/recyclerViewScreenViewButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/open_recycler_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

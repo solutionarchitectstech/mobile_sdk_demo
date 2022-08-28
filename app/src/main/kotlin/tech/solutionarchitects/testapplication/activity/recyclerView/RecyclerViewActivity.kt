@@ -16,26 +16,39 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication
+package tech.solutionarchitects.testapplication.activity.recyclerView
 
-import android.app.Application
-import tech.solutionarchitects.advertisingsdk.TechAdvertising
+import android.os.Bundle
+import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import tech.solutionarchitects.testapplication.databinding.ActivityRecyclerViewBinding
 
-/**
- * Created by Maxim Firsov on 21.08.2022.
- * firsoffmaxim@gmail.com
- */
-class TechApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        TechAdvertising.init(
-            context = applicationContext,
-            storeUrl = "",
-            partnerId = "1",
-            uid = "uid@google.com",
-            baseUrl = "https://<YOUR_END_POINT>/",
-            trackingBaseUrl = "https://<YOUR_LOG_END_POINT>/",
-            debugMode = true
-        )
+class RecyclerViewActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityRecyclerViewBinding
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        with(binding.recyclerView) {
+            val lm = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+            layoutManager = lm
+        }
     }
+
+    override fun onResume() {
+        super.onResume()
+        binding.recyclerView.adapter = Adapter(items)
+    }
+
+    private val items: List<Item>
+        get() {
+            return (0..20).toList().map {
+                if (it % 2 == 0) BannerItem(placementID = it) else EmptyItem
+            }
+        }
 }
